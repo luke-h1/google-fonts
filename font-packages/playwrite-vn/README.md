@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/playwrite-vn expo-font expo-app-loading
+npx expo install @expo-google-fonts/playwrite-vn expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, PlaywriteVN_100Thin, PlaywriteVN_200ExtraLight, PlaywriteVN_300Light, PlaywriteVN_400Regular } from '@expo-google-fonts/playwrite-vn';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/playwrite-vn/useFonts';
+import { PlaywriteVN_100Thin } from '@expo-google-fonts/playwrite-vn/100Thin';
+import { PlaywriteVN_200ExtraLight } from '@expo-google-fonts/playwrite-vn/200ExtraLight';
+import { PlaywriteVN_300Light } from '@expo-google-fonts/playwrite-vn/300Light';
+import { PlaywriteVN_400Regular } from '@expo-google-fonts/playwrite-vn/400Regular';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![PlaywriteVN_100Thin](./PlaywriteVN_100Thin.ttf.png)|![PlaywriteVN_200ExtraLight](./PlaywriteVN_200ExtraLight.ttf.png)|![PlaywriteVN_300Light](./PlaywriteVN_300Light.ttf.png)||
-|![PlaywriteVN_400Regular](./PlaywriteVN_400Regular.ttf.png)||||
+|![PlaywriteVN_100Thin](./100Thin/PlaywriteVN_100Thin.ttf.png)|![PlaywriteVN_200ExtraLight](./200ExtraLight/PlaywriteVN_200ExtraLight.ttf.png)|![PlaywriteVN_300Light](./300Light/PlaywriteVN_300Light.ttf.png)||
+|![PlaywriteVN_400Regular](./400Regular/PlaywriteVN_400Regular.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

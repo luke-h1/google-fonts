@@ -28,17 +28,23 @@ This font family contains [9 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/noto-sans-meetei-mayek expo-font expo-app-loading
+npx expo install @expo-google-fonts/noto-sans-meetei-mayek expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, NotoSansMeeteiMayek_100Thin, NotoSansMeeteiMayek_200ExtraLight, NotoSansMeeteiMayek_300Light, NotoSansMeeteiMayek_400Regular, NotoSansMeeteiMayek_500Medium, NotoSansMeeteiMayek_600SemiBold, NotoSansMeeteiMayek_700Bold, NotoSansMeeteiMayek_800ExtraBold, NotoSansMeeteiMayek_900Black } from '@expo-google-fonts/noto-sans-meetei-mayek';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/noto-sans-meetei-mayek/useFonts';
+import { NotoSansMeeteiMayek_100Thin } from '@expo-google-fonts/noto-sans-meetei-mayek/100Thin';
+import { NotoSansMeeteiMayek_200ExtraLight } from '@expo-google-fonts/noto-sans-meetei-mayek/200ExtraLight';
+import { NotoSansMeeteiMayek_300Light } from '@expo-google-fonts/noto-sans-meetei-mayek/300Light';
+import { NotoSansMeeteiMayek_400Regular } from '@expo-google-fonts/noto-sans-meetei-mayek/400Regular';
+import { NotoSansMeeteiMayek_500Medium } from '@expo-google-fonts/noto-sans-meetei-mayek/500Medium';
+import { NotoSansMeeteiMayek_600SemiBold } from '@expo-google-fonts/noto-sans-meetei-mayek/600SemiBold';
+import { NotoSansMeeteiMayek_700Bold } from '@expo-google-fonts/noto-sans-meetei-mayek/700Bold';
+import { NotoSansMeeteiMayek_800ExtraBold } from '@expo-google-fonts/noto-sans-meetei-mayek/800ExtraBold';
+import { NotoSansMeeteiMayek_900Black } from '@expo-google-fonts/noto-sans-meetei-mayek/900Black';
 
 export default () => {
 
@@ -58,7 +64,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -145,9 +151,9 @@ export default () => {
 
 ||||
 |-|-|-|
-|![NotoSansMeeteiMayek_100Thin](./NotoSansMeeteiMayek_100Thin.ttf.png)|![NotoSansMeeteiMayek_200ExtraLight](./NotoSansMeeteiMayek_200ExtraLight.ttf.png)|![NotoSansMeeteiMayek_300Light](./NotoSansMeeteiMayek_300Light.ttf.png)||
-|![NotoSansMeeteiMayek_400Regular](./NotoSansMeeteiMayek_400Regular.ttf.png)|![NotoSansMeeteiMayek_500Medium](./NotoSansMeeteiMayek_500Medium.ttf.png)|![NotoSansMeeteiMayek_600SemiBold](./NotoSansMeeteiMayek_600SemiBold.ttf.png)||
-|![NotoSansMeeteiMayek_700Bold](./NotoSansMeeteiMayek_700Bold.ttf.png)|![NotoSansMeeteiMayek_800ExtraBold](./NotoSansMeeteiMayek_800ExtraBold.ttf.png)|![NotoSansMeeteiMayek_900Black](./NotoSansMeeteiMayek_900Black.ttf.png)||
+|![NotoSansMeeteiMayek_100Thin](./100Thin/NotoSansMeeteiMayek_100Thin.ttf.png)|![NotoSansMeeteiMayek_200ExtraLight](./200ExtraLight/NotoSansMeeteiMayek_200ExtraLight.ttf.png)|![NotoSansMeeteiMayek_300Light](./300Light/NotoSansMeeteiMayek_300Light.ttf.png)||
+|![NotoSansMeeteiMayek_400Regular](./400Regular/NotoSansMeeteiMayek_400Regular.ttf.png)|![NotoSansMeeteiMayek_500Medium](./500Medium/NotoSansMeeteiMayek_500Medium.ttf.png)|![NotoSansMeeteiMayek_600SemiBold](./600SemiBold/NotoSansMeeteiMayek_600SemiBold.ttf.png)||
+|![NotoSansMeeteiMayek_700Bold](./700Bold/NotoSansMeeteiMayek_700Bold.ttf.png)|![NotoSansMeeteiMayek_800ExtraBold](./800ExtraBold/NotoSansMeeteiMayek_800ExtraBold.ttf.png)|![NotoSansMeeteiMayek_900Black](./900Black/NotoSansMeeteiMayek_900Black.ttf.png)||
 
 
 ## 👩‍💻 Use During Development

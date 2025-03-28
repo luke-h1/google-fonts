@@ -20,17 +20,15 @@ This font family contains [1 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/chonburi expo-font expo-app-loading
+npx expo install @expo-google-fonts/chonburi expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, Chonburi_400Regular } from '@expo-google-fonts/chonburi';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/chonburi/useFonts';
+import { Chonburi_400Regular } from '@expo-google-fonts/chonburi/400Regular';
 
 export default () => {
 
@@ -42,7 +40,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -65,7 +63,7 @@ export default () => {
 
 ||||
 |-|-|-|
-|![Chonburi_400Regular](./Chonburi_400Regular.ttf.png)||||
+|![Chonburi_400Regular](./400Regular/Chonburi_400Regular.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

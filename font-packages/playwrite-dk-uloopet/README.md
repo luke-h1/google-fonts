@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/playwrite-dk-uloopet expo-font expo-app-loading
+npx expo install @expo-google-fonts/playwrite-dk-uloopet expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, PlaywriteDKUloopet_100Thin, PlaywriteDKUloopet_200ExtraLight, PlaywriteDKUloopet_300Light, PlaywriteDKUloopet_400Regular } from '@expo-google-fonts/playwrite-dk-uloopet';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/playwrite-dk-uloopet/useFonts';
+import { PlaywriteDKUloopet_100Thin } from '@expo-google-fonts/playwrite-dk-uloopet/100Thin';
+import { PlaywriteDKUloopet_200ExtraLight } from '@expo-google-fonts/playwrite-dk-uloopet/200ExtraLight';
+import { PlaywriteDKUloopet_300Light } from '@expo-google-fonts/playwrite-dk-uloopet/300Light';
+import { PlaywriteDKUloopet_400Regular } from '@expo-google-fonts/playwrite-dk-uloopet/400Regular';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![PlaywriteDKUloopet_100Thin](./PlaywriteDKUloopet_100Thin.ttf.png)|![PlaywriteDKUloopet_200ExtraLight](./PlaywriteDKUloopet_200ExtraLight.ttf.png)|![PlaywriteDKUloopet_300Light](./PlaywriteDKUloopet_300Light.ttf.png)||
-|![PlaywriteDKUloopet_400Regular](./PlaywriteDKUloopet_400Regular.ttf.png)||||
+|![PlaywriteDKUloopet_100Thin](./100Thin/PlaywriteDKUloopet_100Thin.ttf.png)|![PlaywriteDKUloopet_200ExtraLight](./200ExtraLight/PlaywriteDKUloopet_200ExtraLight.ttf.png)|![PlaywriteDKUloopet_300Light](./300Light/PlaywriteDKUloopet_300Light.ttf.png)||
+|![PlaywriteDKUloopet_400Regular](./400Regular/PlaywriteDKUloopet_400Regular.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

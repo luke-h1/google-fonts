@@ -27,17 +27,22 @@ This font family contains [8 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/mada expo-font expo-app-loading
+npx expo install @expo-google-fonts/mada expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, Mada_200ExtraLight, Mada_300Light, Mada_400Regular, Mada_500Medium, Mada_600SemiBold, Mada_700Bold, Mada_800ExtraBold, Mada_900Black } from '@expo-google-fonts/mada';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/mada/useFonts';
+import { Mada_200ExtraLight } from '@expo-google-fonts/mada/200ExtraLight';
+import { Mada_300Light } from '@expo-google-fonts/mada/300Light';
+import { Mada_400Regular } from '@expo-google-fonts/mada/400Regular';
+import { Mada_500Medium } from '@expo-google-fonts/mada/500Medium';
+import { Mada_600SemiBold } from '@expo-google-fonts/mada/600SemiBold';
+import { Mada_700Bold } from '@expo-google-fonts/mada/700Bold';
+import { Mada_800ExtraBold } from '@expo-google-fonts/mada/800ExtraBold';
+import { Mada_900Black } from '@expo-google-fonts/mada/900Black';
 
 export default () => {
 
@@ -56,7 +61,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -135,9 +140,9 @@ export default () => {
 
 ||||
 |-|-|-|
-|![Mada_200ExtraLight](./Mada_200ExtraLight.ttf.png)|![Mada_300Light](./Mada_300Light.ttf.png)|![Mada_400Regular](./Mada_400Regular.ttf.png)||
-|![Mada_500Medium](./Mada_500Medium.ttf.png)|![Mada_600SemiBold](./Mada_600SemiBold.ttf.png)|![Mada_700Bold](./Mada_700Bold.ttf.png)||
-|![Mada_800ExtraBold](./Mada_800ExtraBold.ttf.png)|![Mada_900Black](./Mada_900Black.ttf.png)|||
+|![Mada_200ExtraLight](./200ExtraLight/Mada_200ExtraLight.ttf.png)|![Mada_300Light](./300Light/Mada_300Light.ttf.png)|![Mada_400Regular](./400Regular/Mada_400Regular.ttf.png)||
+|![Mada_500Medium](./500Medium/Mada_500Medium.ttf.png)|![Mada_600SemiBold](./600SemiBold/Mada_600SemiBold.ttf.png)|![Mada_700Bold](./700Bold/Mada_700Bold.ttf.png)||
+|![Mada_800ExtraBold](./800ExtraBold/Mada_800ExtraBold.ttf.png)|![Mada_900Black](./900Black/Mada_900Black.ttf.png)|||
 
 
 ## 👩‍💻 Use During Development

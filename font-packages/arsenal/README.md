@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/arsenal expo-font expo-app-loading
+npx expo install @expo-google-fonts/arsenal expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, Arsenal_400Regular, Arsenal_400Regular_Italic, Arsenal_700Bold, Arsenal_700Bold_Italic } from '@expo-google-fonts/arsenal';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/arsenal/useFonts';
+import { Arsenal_400Regular } from '@expo-google-fonts/arsenal/400Regular';
+import { Arsenal_400Regular_Italic } from '@expo-google-fonts/arsenal/400Regular_Italic';
+import { Arsenal_700Bold } from '@expo-google-fonts/arsenal/700Bold';
+import { Arsenal_700Bold_Italic } from '@expo-google-fonts/arsenal/700Bold_Italic';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![Arsenal_400Regular](./Arsenal_400Regular.ttf.png)|![Arsenal_400Regular_Italic](./Arsenal_400Regular_Italic.ttf.png)|![Arsenal_700Bold](./Arsenal_700Bold.ttf.png)||
-|![Arsenal_700Bold_Italic](./Arsenal_700Bold_Italic.ttf.png)||||
+|![Arsenal_400Regular](./400Regular/Arsenal_400Regular.ttf.png)|![Arsenal_400Regular_Italic](./400Regular_Italic/Arsenal_400Regular_Italic.ttf.png)|![Arsenal_700Bold](./700Bold/Arsenal_700Bold.ttf.png)||
+|![Arsenal_700Bold_Italic](./700Bold_Italic/Arsenal_700Bold_Italic.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

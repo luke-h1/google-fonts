@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/noto-nastaliq-urdu expo-font expo-app-loading
+npx expo install @expo-google-fonts/noto-nastaliq-urdu expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, NotoNastaliqUrdu_400Regular, NotoNastaliqUrdu_500Medium, NotoNastaliqUrdu_600SemiBold, NotoNastaliqUrdu_700Bold } from '@expo-google-fonts/noto-nastaliq-urdu';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/noto-nastaliq-urdu/useFonts';
+import { NotoNastaliqUrdu_400Regular } from '@expo-google-fonts/noto-nastaliq-urdu/400Regular';
+import { NotoNastaliqUrdu_500Medium } from '@expo-google-fonts/noto-nastaliq-urdu/500Medium';
+import { NotoNastaliqUrdu_600SemiBold } from '@expo-google-fonts/noto-nastaliq-urdu/600SemiBold';
+import { NotoNastaliqUrdu_700Bold } from '@expo-google-fonts/noto-nastaliq-urdu/700Bold';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![NotoNastaliqUrdu_400Regular](./NotoNastaliqUrdu_400Regular.ttf.png)|![NotoNastaliqUrdu_500Medium](./NotoNastaliqUrdu_500Medium.ttf.png)|![NotoNastaliqUrdu_600SemiBold](./NotoNastaliqUrdu_600SemiBold.ttf.png)||
-|![NotoNastaliqUrdu_700Bold](./NotoNastaliqUrdu_700Bold.ttf.png)||||
+|![NotoNastaliqUrdu_400Regular](./400Regular/NotoNastaliqUrdu_400Regular.ttf.png)|![NotoNastaliqUrdu_500Medium](./500Medium/NotoNastaliqUrdu_500Medium.ttf.png)|![NotoNastaliqUrdu_600SemiBold](./600SemiBold/NotoNastaliqUrdu_600SemiBold.ttf.png)||
+|![NotoNastaliqUrdu_700Bold](./700Bold/NotoNastaliqUrdu_700Bold.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

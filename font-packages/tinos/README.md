@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/tinos expo-font expo-app-loading
+npx expo install @expo-google-fonts/tinos expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, Tinos_400Regular, Tinos_400Regular_Italic, Tinos_700Bold, Tinos_700Bold_Italic } from '@expo-google-fonts/tinos';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/tinos/useFonts';
+import { Tinos_400Regular } from '@expo-google-fonts/tinos/400Regular';
+import { Tinos_400Regular_Italic } from '@expo-google-fonts/tinos/400Regular_Italic';
+import { Tinos_700Bold } from '@expo-google-fonts/tinos/700Bold';
+import { Tinos_700Bold_Italic } from '@expo-google-fonts/tinos/700Bold_Italic';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![Tinos_400Regular](./Tinos_400Regular.ttf.png)|![Tinos_400Regular_Italic](./Tinos_400Regular_Italic.ttf.png)|![Tinos_700Bold](./Tinos_700Bold.ttf.png)||
-|![Tinos_700Bold_Italic](./Tinos_700Bold_Italic.ttf.png)||||
+|![Tinos_400Regular](./400Regular/Tinos_400Regular.ttf.png)|![Tinos_400Regular_Italic](./400Regular_Italic/Tinos_400Regular_Italic.ttf.png)|![Tinos_700Bold](./700Bold/Tinos_700Bold.ttf.png)||
+|![Tinos_700Bold_Italic](./700Bold_Italic/Tinos_700Bold_Italic.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

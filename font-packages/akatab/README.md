@@ -25,17 +25,20 @@ This font family contains [6 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/akatab expo-font expo-app-loading
+npx expo install @expo-google-fonts/akatab expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, Akatab_400Regular, Akatab_500Medium, Akatab_600SemiBold, Akatab_700Bold, Akatab_800ExtraBold, Akatab_900Black } from '@expo-google-fonts/akatab';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/akatab/useFonts';
+import { Akatab_400Regular } from '@expo-google-fonts/akatab/400Regular';
+import { Akatab_500Medium } from '@expo-google-fonts/akatab/500Medium';
+import { Akatab_600SemiBold } from '@expo-google-fonts/akatab/600SemiBold';
+import { Akatab_700Bold } from '@expo-google-fonts/akatab/700Bold';
+import { Akatab_800ExtraBold } from '@expo-google-fonts/akatab/800ExtraBold';
+import { Akatab_900Black } from '@expo-google-fonts/akatab/900Black';
 
 export default () => {
 
@@ -52,7 +55,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -115,8 +118,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![Akatab_400Regular](./Akatab_400Regular.ttf.png)|![Akatab_500Medium](./Akatab_500Medium.ttf.png)|![Akatab_600SemiBold](./Akatab_600SemiBold.ttf.png)||
-|![Akatab_700Bold](./Akatab_700Bold.ttf.png)|![Akatab_800ExtraBold](./Akatab_800ExtraBold.ttf.png)|![Akatab_900Black](./Akatab_900Black.ttf.png)||
+|![Akatab_400Regular](./400Regular/Akatab_400Regular.ttf.png)|![Akatab_500Medium](./500Medium/Akatab_500Medium.ttf.png)|![Akatab_600SemiBold](./600SemiBold/Akatab_600SemiBold.ttf.png)||
+|![Akatab_700Bold](./700Bold/Akatab_700Bold.ttf.png)|![Akatab_800ExtraBold](./800ExtraBold/Akatab_800ExtraBold.ttf.png)|![Akatab_900Black](./900Black/Akatab_900Black.ttf.png)||
 
 
 ## 👩‍💻 Use During Development

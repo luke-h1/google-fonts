@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/vesper-libre expo-font expo-app-loading
+npx expo install @expo-google-fonts/vesper-libre expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, VesperLibre_400Regular, VesperLibre_500Medium, VesperLibre_700Bold, VesperLibre_900Black } from '@expo-google-fonts/vesper-libre';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/vesper-libre/useFonts';
+import { VesperLibre_400Regular } from '@expo-google-fonts/vesper-libre/400Regular';
+import { VesperLibre_500Medium } from '@expo-google-fonts/vesper-libre/500Medium';
+import { VesperLibre_700Bold } from '@expo-google-fonts/vesper-libre/700Bold';
+import { VesperLibre_900Black } from '@expo-google-fonts/vesper-libre/900Black';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![VesperLibre_400Regular](./VesperLibre_400Regular.ttf.png)|![VesperLibre_500Medium](./VesperLibre_500Medium.ttf.png)|![VesperLibre_700Bold](./VesperLibre_700Bold.ttf.png)||
-|![VesperLibre_900Black](./VesperLibre_900Black.ttf.png)||||
+|![VesperLibre_400Regular](./400Regular/VesperLibre_400Regular.ttf.png)|![VesperLibre_500Medium](./500Medium/VesperLibre_500Medium.ttf.png)|![VesperLibre_700Bold](./700Bold/VesperLibre_700Bold.ttf.png)||
+|![VesperLibre_900Black](./900Black/VesperLibre_900Black.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/playwrite-be-wal expo-font expo-app-loading
+npx expo install @expo-google-fonts/playwrite-be-wal expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, PlaywriteBEWAL_100Thin, PlaywriteBEWAL_200ExtraLight, PlaywriteBEWAL_300Light, PlaywriteBEWAL_400Regular } from '@expo-google-fonts/playwrite-be-wal';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/playwrite-be-wal/useFonts';
+import { PlaywriteBEWAL_100Thin } from '@expo-google-fonts/playwrite-be-wal/100Thin';
+import { PlaywriteBEWAL_200ExtraLight } from '@expo-google-fonts/playwrite-be-wal/200ExtraLight';
+import { PlaywriteBEWAL_300Light } from '@expo-google-fonts/playwrite-be-wal/300Light';
+import { PlaywriteBEWAL_400Regular } from '@expo-google-fonts/playwrite-be-wal/400Regular';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![PlaywriteBEWAL_100Thin](./PlaywriteBEWAL_100Thin.ttf.png)|![PlaywriteBEWAL_200ExtraLight](./PlaywriteBEWAL_200ExtraLight.ttf.png)|![PlaywriteBEWAL_300Light](./PlaywriteBEWAL_300Light.ttf.png)||
-|![PlaywriteBEWAL_400Regular](./PlaywriteBEWAL_400Regular.ttf.png)||||
+|![PlaywriteBEWAL_100Thin](./100Thin/PlaywriteBEWAL_100Thin.ttf.png)|![PlaywriteBEWAL_200ExtraLight](./200ExtraLight/PlaywriteBEWAL_200ExtraLight.ttf.png)|![PlaywriteBEWAL_300Light](./300Light/PlaywriteBEWAL_300Light.ttf.png)||
+|![PlaywriteBEWAL_400Regular](./400Regular/PlaywriteBEWAL_400Regular.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

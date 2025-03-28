@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/playwrite-it-trad expo-font expo-app-loading
+npx expo install @expo-google-fonts/playwrite-it-trad expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, PlaywriteITTrad_100Thin, PlaywriteITTrad_200ExtraLight, PlaywriteITTrad_300Light, PlaywriteITTrad_400Regular } from '@expo-google-fonts/playwrite-it-trad';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/playwrite-it-trad/useFonts';
+import { PlaywriteITTrad_100Thin } from '@expo-google-fonts/playwrite-it-trad/100Thin';
+import { PlaywriteITTrad_200ExtraLight } from '@expo-google-fonts/playwrite-it-trad/200ExtraLight';
+import { PlaywriteITTrad_300Light } from '@expo-google-fonts/playwrite-it-trad/300Light';
+import { PlaywriteITTrad_400Regular } from '@expo-google-fonts/playwrite-it-trad/400Regular';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![PlaywriteITTrad_100Thin](./PlaywriteITTrad_100Thin.ttf.png)|![PlaywriteITTrad_200ExtraLight](./PlaywriteITTrad_200ExtraLight.ttf.png)|![PlaywriteITTrad_300Light](./PlaywriteITTrad_300Light.ttf.png)||
-|![PlaywriteITTrad_400Regular](./PlaywriteITTrad_400Regular.ttf.png)||||
+|![PlaywriteITTrad_100Thin](./100Thin/PlaywriteITTrad_100Thin.ttf.png)|![PlaywriteITTrad_200ExtraLight](./200ExtraLight/PlaywriteITTrad_200ExtraLight.ttf.png)|![PlaywriteITTrad_300Light](./300Light/PlaywriteITTrad_300Light.ttf.png)||
+|![PlaywriteITTrad_400Regular](./400Regular/PlaywriteITTrad_400Regular.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

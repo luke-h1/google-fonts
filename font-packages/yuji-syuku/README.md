@@ -20,17 +20,15 @@ This font family contains [1 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/yuji-syuku expo-font expo-app-loading
+npx expo install @expo-google-fonts/yuji-syuku expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, YujiSyuku_400Regular } from '@expo-google-fonts/yuji-syuku';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/yuji-syuku/useFonts';
+import { YujiSyuku_400Regular } from '@expo-google-fonts/yuji-syuku/400Regular';
 
 export default () => {
 
@@ -42,7 +40,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -65,7 +63,7 @@ export default () => {
 
 ||||
 |-|-|-|
-|![YujiSyuku_400Regular](./YujiSyuku_400Regular.ttf.png)||||
+|![YujiSyuku_400Regular](./400Regular/YujiSyuku_400Regular.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

@@ -24,17 +24,19 @@ This font family contains [5 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/solway expo-font expo-app-loading
+npx expo install @expo-google-fonts/solway expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, Solway_300Light, Solway_400Regular, Solway_500Medium, Solway_700Bold, Solway_800ExtraBold } from '@expo-google-fonts/solway';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/solway/useFonts';
+import { Solway_300Light } from '@expo-google-fonts/solway/300Light';
+import { Solway_400Regular } from '@expo-google-fonts/solway/400Regular';
+import { Solway_500Medium } from '@expo-google-fonts/solway/500Medium';
+import { Solway_700Bold } from '@expo-google-fonts/solway/700Bold';
+import { Solway_800ExtraBold } from '@expo-google-fonts/solway/800ExtraBold';
 
 export default () => {
 
@@ -50,7 +52,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -105,8 +107,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![Solway_300Light](./Solway_300Light.ttf.png)|![Solway_400Regular](./Solway_400Regular.ttf.png)|![Solway_500Medium](./Solway_500Medium.ttf.png)||
-|![Solway_700Bold](./Solway_700Bold.ttf.png)|![Solway_800ExtraBold](./Solway_800ExtraBold.ttf.png)|||
+|![Solway_300Light](./300Light/Solway_300Light.ttf.png)|![Solway_400Regular](./400Regular/Solway_400Regular.ttf.png)|![Solway_500Medium](./500Medium/Solway_500Medium.ttf.png)||
+|![Solway_700Bold](./700Bold/Solway_700Bold.ttf.png)|![Solway_800ExtraBold](./800ExtraBold/Solway_800ExtraBold.ttf.png)|||
 
 
 ## 👩‍💻 Use During Development

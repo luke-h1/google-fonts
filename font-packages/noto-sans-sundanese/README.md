@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/noto-sans-sundanese expo-font expo-app-loading
+npx expo install @expo-google-fonts/noto-sans-sundanese expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, NotoSansSundanese_400Regular, NotoSansSundanese_500Medium, NotoSansSundanese_600SemiBold, NotoSansSundanese_700Bold } from '@expo-google-fonts/noto-sans-sundanese';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/noto-sans-sundanese/useFonts';
+import { NotoSansSundanese_400Regular } from '@expo-google-fonts/noto-sans-sundanese/400Regular';
+import { NotoSansSundanese_500Medium } from '@expo-google-fonts/noto-sans-sundanese/500Medium';
+import { NotoSansSundanese_600SemiBold } from '@expo-google-fonts/noto-sans-sundanese/600SemiBold';
+import { NotoSansSundanese_700Bold } from '@expo-google-fonts/noto-sans-sundanese/700Bold';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![NotoSansSundanese_400Regular](./NotoSansSundanese_400Regular.ttf.png)|![NotoSansSundanese_500Medium](./NotoSansSundanese_500Medium.ttf.png)|![NotoSansSundanese_600SemiBold](./NotoSansSundanese_600SemiBold.ttf.png)||
-|![NotoSansSundanese_700Bold](./NotoSansSundanese_700Bold.ttf.png)||||
+|![NotoSansSundanese_400Regular](./400Regular/NotoSansSundanese_400Regular.ttf.png)|![NotoSansSundanese_500Medium](./500Medium/NotoSansSundanese_500Medium.ttf.png)|![NotoSansSundanese_600SemiBold](./600SemiBold/NotoSansSundanese_600SemiBold.ttf.png)||
+|![NotoSansSundanese_700Bold](./700Bold/NotoSansSundanese_700Bold.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

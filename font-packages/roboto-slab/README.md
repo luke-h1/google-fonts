@@ -28,17 +28,23 @@ This font family contains [9 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/roboto-slab expo-font expo-app-loading
+npx expo install @expo-google-fonts/roboto-slab expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, RobotoSlab_100Thin, RobotoSlab_200ExtraLight, RobotoSlab_300Light, RobotoSlab_400Regular, RobotoSlab_500Medium, RobotoSlab_600SemiBold, RobotoSlab_700Bold, RobotoSlab_800ExtraBold, RobotoSlab_900Black } from '@expo-google-fonts/roboto-slab';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/roboto-slab/useFonts';
+import { RobotoSlab_100Thin } from '@expo-google-fonts/roboto-slab/100Thin';
+import { RobotoSlab_200ExtraLight } from '@expo-google-fonts/roboto-slab/200ExtraLight';
+import { RobotoSlab_300Light } from '@expo-google-fonts/roboto-slab/300Light';
+import { RobotoSlab_400Regular } from '@expo-google-fonts/roboto-slab/400Regular';
+import { RobotoSlab_500Medium } from '@expo-google-fonts/roboto-slab/500Medium';
+import { RobotoSlab_600SemiBold } from '@expo-google-fonts/roboto-slab/600SemiBold';
+import { RobotoSlab_700Bold } from '@expo-google-fonts/roboto-slab/700Bold';
+import { RobotoSlab_800ExtraBold } from '@expo-google-fonts/roboto-slab/800ExtraBold';
+import { RobotoSlab_900Black } from '@expo-google-fonts/roboto-slab/900Black';
 
 export default () => {
 
@@ -58,7 +64,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -145,9 +151,9 @@ export default () => {
 
 ||||
 |-|-|-|
-|![RobotoSlab_100Thin](./RobotoSlab_100Thin.ttf.png)|![RobotoSlab_200ExtraLight](./RobotoSlab_200ExtraLight.ttf.png)|![RobotoSlab_300Light](./RobotoSlab_300Light.ttf.png)||
-|![RobotoSlab_400Regular](./RobotoSlab_400Regular.ttf.png)|![RobotoSlab_500Medium](./RobotoSlab_500Medium.ttf.png)|![RobotoSlab_600SemiBold](./RobotoSlab_600SemiBold.ttf.png)||
-|![RobotoSlab_700Bold](./RobotoSlab_700Bold.ttf.png)|![RobotoSlab_800ExtraBold](./RobotoSlab_800ExtraBold.ttf.png)|![RobotoSlab_900Black](./RobotoSlab_900Black.ttf.png)||
+|![RobotoSlab_100Thin](./100Thin/RobotoSlab_100Thin.ttf.png)|![RobotoSlab_200ExtraLight](./200ExtraLight/RobotoSlab_200ExtraLight.ttf.png)|![RobotoSlab_300Light](./300Light/RobotoSlab_300Light.ttf.png)||
+|![RobotoSlab_400Regular](./400Regular/RobotoSlab_400Regular.ttf.png)|![RobotoSlab_500Medium](./500Medium/RobotoSlab_500Medium.ttf.png)|![RobotoSlab_600SemiBold](./600SemiBold/RobotoSlab_600SemiBold.ttf.png)||
+|![RobotoSlab_700Bold](./700Bold/RobotoSlab_700Bold.ttf.png)|![RobotoSlab_800ExtraBold](./800ExtraBold/RobotoSlab_800ExtraBold.ttf.png)|![RobotoSlab_900Black](./900Black/RobotoSlab_900Black.ttf.png)||
 
 
 ## 👩‍💻 Use During Development

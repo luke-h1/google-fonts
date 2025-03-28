@@ -89,14 +89,17 @@ function infoForVariantKey(variantKey) {
   const isItalic = variantKey.endsWith('italic');
   const weightName = WeightNames[weight];
   let suffix = '_' + weight + weightName;
+  let variantFolderName = weight + weightName;
   if (isItalic) {
     suffix += '_Italic';
+    variantFolderName += '_Italic';
   }
   return {
     weight,
     isItalic,
     weightName,
     suffix,
+    variantFolderName,
   };
 }
 
@@ -215,8 +218,13 @@ function generateTableForVariants(webfont, pkgUrl) {
 `;
   const variantImageCells = [];
   for (const variantKey of webfont.variants) {
+    const variantFolderName = infoForVariantKey(variantKey).variantFolderName;
     const styleImagePath =
-      fontPackagesPrefix + filenameForFontVariant(webfont, variantKey) + '.png';
+      fontPackagesPrefix +
+      variantFolderName +
+      '/' +
+      filenameForFontVariant(webfont, variantKey) +
+      '.png';
     const fi = varNameForFontVariant(webfont, variantKey);
     if (pkgUrl) {
       variantImageCells.push(`[![${fi}](${styleImagePath})](${pkgUrl})`);
@@ -253,6 +261,7 @@ async function generateFontPackage(webfont) {
       version: PackageVersion,
       description: `Use the ${webfont.family} font family from Google Fonts in your Expo app`,
       main: 'index.js',
+      directory: 'font-packages/' + packageName,
     }
   );
 
@@ -268,16 +277,39 @@ async function generateFontPackage(webfont) {
 
   for (const variantKey of webfont.variants) {
     const ffn = filenameForFontVariant(webfont, variantKey);
+    const { variantFolderName } = infoForVariantKey(variantKey);
+
+    const variantDirectory = path.join(pkgDir, `${variantFolderName}`);
+    await fsExtra.ensureDir(variantDirectory);
 
     // link fonts and image previews
-    await fs.promises.link(path.join(FontAssetsDir, ffn), path.join(pkgDir, ffn));
-    await fs.promises.link(path.join(FontImagesDir, ffn + '.png'), path.join(pkgDir, ffn + '.png'));
+    await fs.promises.link(
+      path.join(FontAssetsDir, ffn),
+      path.join(pkgDir, variantFolderName, ffn)
+    );
+    await fs.promises.link(
+      path.join(FontImagesDir, ffn + '.png'),
+      path.join(pkgDir, variantFolderName, ffn + '.png')
+    );
+
+    const variantName = varNameForFontVariant(webfont, variantKey);
+    await createFileFromTemplate(
+      path.join(pkgDir, variantFolderName, 'index.js'),
+      path.join(__dirname, 'templates/package/variant/index.js.ejs'),
+      { variantName }
+    );
+    await createFileFromTemplate(
+      path.join(pkgDir, variantFolderName, 'index.d.ts'),
+      path.join(__dirname, 'templates/package/variant/index.d.ts.ejs'),
+      { variantName }
+    );
   }
 
   const variants = webfont.variants.map((variantKey) => {
+    const { variantFolderName } = infoForVariantKey(variantKey);
     return {
       name: varNameForFontVariant(webfont, variantKey),
-      path: filenameForFontVariant(webfont, variantKey),
+      path: variantFolderName + '/' + filenameForFontVariant(webfont, variantKey),
     };
   });
 
@@ -316,7 +348,7 @@ async function generateFontPackage(webfont) {
     path.join(pkgDir, 'README.md'),
     path.join(__dirname, 'templates/package/README.md'),
     {
-      packageName: getPackageNameForWebfont(webfont),
+      packageName,
       fontName: webfont.family,
       fontVariants: webfont.variants.map((variantKey) =>
         varNameForFontVariant(webfont, variantKey)
@@ -324,6 +356,11 @@ async function generateFontPackage(webfont) {
       fontVariantsWithDisplayName: webfont.variants.map((variantKey) => ({
         varName: varNameForFontVariant(webfont, variantKey),
         displayName: getDisplayNameForFontVariant(webfont, variantKey),
+        path:
+          '@expo-google-fonts/' +
+          packageName +
+          '/' +
+          infoForVariantKey(variantKey).variantFolderName,
       })),
       devPackageDescription: await ejs.renderFile(
         path.join(__dirname, 'templates/dev/DESCRIPTION.md')
@@ -346,6 +383,7 @@ async function generateDevPackage(fontDirectory) {
       version: PackageVersion,
       description: `Load ${fontDirectory.items.length} font families from Google Fonts over the network while developing your Expo app`,
       main: 'index.js',
+      directory: 'font-packages/dev',
     }
   );
 
@@ -407,7 +445,7 @@ async function generateFontDirectoryPackage(fontDirectory) {
   for (const webfont of fd.items) {
     const packageName = getPackageNameForWebfont(webfont);
     webfont.expoGoogleFontsPackage = PackageScope + packageName;
-    webfont.expoGoogleFontsPackageHomepage = `https://github.com/expo/google-fonts/tree/master/font-packages/${packageName}`;
+    webfont.expoGoogleFontsPackageHomepage = `https://github.com/expo/google-fonts/tree/main/font-packages/${packageName}`;
   }
 
   await fs.promises.writeFile(
@@ -424,6 +462,7 @@ async function generateFontDirectoryPackage(fontDirectory) {
       version: PackageVersion,
       description: 'A directory of metadata about the fonts available in `expo-google-fonts`',
       main: 'fontDirectory.json',
+      directory: 'font-packages/font-directory',
     }
   );
 
@@ -510,7 +549,7 @@ async function getFeaturedGalleryMarkdown(fontDirectory) {
       const packageName = getPackageNameForWebfont(webfont);
       md += `[![${varNameForWebfont(
         webfont
-      )}](${styleImagePath})](https://github.com/expo/google-fonts/tree/master/font-packages/${packageName}#readme)|`;
+      )}](${styleImagePath})](https://github.com/expo/google-fonts/tree/main/font-packages/${packageName}#readme)|`;
     }
     md += '\n';
   }
@@ -529,14 +568,14 @@ async function generateGalleryFile(fontDirectory) {
         .map((webfont) => {
           return `[${
             webfont.family
-          }](https://github.com/expo/google-fonts/tree/master/font-packages/${getPackageNameForWebfont(
+          }](https://github.com/expo/google-fonts/tree/main/font-packages/${getPackageNameForWebfont(
             webfont
           )}#readme)`;
         })
         .join(', '),
       styles: fontDirectory.items.map((webfont) => {
         const pkgUrl =
-          'https://github.com/expo/google-fonts/tree/master/font-packages/' +
+          'https://github.com/expo/google-fonts/tree/main/font-packages/' +
           getPackageNameForWebfont(webfont) +
           '#readme';
         return `### [${webfont.family}](${pkgUrl})\n` + generateTableForVariants(webfont, pkgUrl);

@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/share expo-font expo-app-loading
+npx expo install @expo-google-fonts/share expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, Share_400Regular, Share_400Regular_Italic, Share_700Bold, Share_700Bold_Italic } from '@expo-google-fonts/share';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/share/useFonts';
+import { Share_400Regular } from '@expo-google-fonts/share/400Regular';
+import { Share_400Regular_Italic } from '@expo-google-fonts/share/400Regular_Italic';
+import { Share_700Bold } from '@expo-google-fonts/share/700Bold';
+import { Share_700Bold_Italic } from '@expo-google-fonts/share/700Bold_Italic';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![Share_400Regular](./Share_400Regular.ttf.png)|![Share_400Regular_Italic](./Share_400Regular_Italic.ttf.png)|![Share_700Bold](./Share_700Bold.ttf.png)||
-|![Share_700Bold_Italic](./Share_700Bold_Italic.ttf.png)||||
+|![Share_400Regular](./400Regular/Share_400Regular.ttf.png)|![Share_400Regular_Italic](./400Regular_Italic/Share_400Regular_Italic.ttf.png)|![Share_700Bold](./700Bold/Share_700Bold.ttf.png)||
+|![Share_700Bold_Italic](./700Bold_Italic/Share_700Bold_Italic.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

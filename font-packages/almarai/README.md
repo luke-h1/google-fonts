@@ -23,17 +23,18 @@ This font family contains [4 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/almarai expo-font expo-app-loading
+npx expo install @expo-google-fonts/almarai expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, Almarai_300Light, Almarai_400Regular, Almarai_700Bold, Almarai_800ExtraBold } from '@expo-google-fonts/almarai';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/almarai/useFonts';
+import { Almarai_300Light } from '@expo-google-fonts/almarai/300Light';
+import { Almarai_400Regular } from '@expo-google-fonts/almarai/400Regular';
+import { Almarai_700Bold } from '@expo-google-fonts/almarai/700Bold';
+import { Almarai_800ExtraBold } from '@expo-google-fonts/almarai/800ExtraBold';
 
 export default () => {
 
@@ -48,7 +49,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -95,8 +96,8 @@ export default () => {
 
 ||||
 |-|-|-|
-|![Almarai_300Light](./Almarai_300Light.ttf.png)|![Almarai_400Regular](./Almarai_400Regular.ttf.png)|![Almarai_700Bold](./Almarai_700Bold.ttf.png)||
-|![Almarai_800ExtraBold](./Almarai_800ExtraBold.ttf.png)||||
+|![Almarai_300Light](./300Light/Almarai_300Light.ttf.png)|![Almarai_400Regular](./400Regular/Almarai_400Regular.ttf.png)|![Almarai_700Bold](./700Bold/Almarai_700Bold.ttf.png)||
+|![Almarai_800ExtraBold](./800ExtraBold/Almarai_800ExtraBold.ttf.png)||||
 
 
 ## 👩‍💻 Use During Development

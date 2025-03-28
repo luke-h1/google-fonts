@@ -21,17 +21,16 @@ This font family contains [2 styles](#-gallery).
 Run this command from the shell in the root directory of your Expo project to add the font family package to your project
 
 ```sh
-npx expo install @expo-google-fonts/ranga expo-font expo-app-loading
+npx expo install @expo-google-fonts/ranga expo-font
 ```
 
 Now add code like this to your project
 
 ```js
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
-import AppLoading from "expo-app-loading";
-import { useFonts, Ranga_400Regular, Ranga_700Bold } from '@expo-google-fonts/ranga';
+import { Text, View } from "react-native";
+import { useFonts } from '@expo-google-fonts/ranga/useFonts';
+import { Ranga_400Regular } from '@expo-google-fonts/ranga/400Regular';
+import { Ranga_700Bold } from '@expo-google-fonts/ranga/700Bold';
 
 export default () => {
 
@@ -44,7 +43,7 @@ export default () => {
   let paddingVertical = 6;
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   } else {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -75,7 +74,7 @@ export default () => {
 
 ||||
 |-|-|-|
-|![Ranga_400Regular](./Ranga_400Regular.ttf.png)|![Ranga_700Bold](./Ranga_700Bold.ttf.png)|||
+|![Ranga_400Regular](./400Regular/Ranga_400Regular.ttf.png)|![Ranga_700Bold](./700Bold/Ranga_700Bold.ttf.png)|||
 
 
 ## 👩‍💻 Use During Development
