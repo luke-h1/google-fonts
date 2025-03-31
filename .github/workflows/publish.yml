@@ -47,7 +47,6 @@ jobs:
             fi
             
             echo "Publishing package: $package"
-            cd "font-packages/$package"
             (cd "font-packages/$package" && npm publish --access public)
           done
         env:
