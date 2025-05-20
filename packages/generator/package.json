@@ -3,13 +3,10 @@
   "version": "0.2.3",
   "main": "generator.js",
   "scripts": {
-    "generate": "node .",
-    "generate-images": "node build-images.js",
-    "generate-packages": "node build-packages.js",
-    "publish-font-packages": "node publish-font-packages.js",
-    "generate-root-readme": "node generate-root-readme.js",
-    "update-directory-data": "node update-directory-data.js",
-    "sync-packages": "ts-node ./scripts/sync-packages.ts"
+    "generate-root-readme": "ts-node ./scripts/generate-root-readme.ts",
+    "sync-packages": "ts-node ./scripts/sync-packages.ts",
+    "deprecate-archived": "ts-node ./scripts/deprecate-archived.ts",
+    "regenerate-all": "ts-node ./scripts/regenerate-all.ts"
   },
   "dependencies": {
     "@expo/spawn-async": "^1.5.0",
@@ -28,7 +25,11 @@
     "typescript": "^5.8.2"
   },
   "devDependencies": {
+    "@types/cli-progress": "^3.11.6",
+    "@types/ejs": "^3.1.5",
     "@types/fs-extra": "^11.0.4",
+    "@types/physical-cpu-count": "^2.0.2",
+    "@types/semver": "^7.7.0",
     "delay-async": "^1.2.0"
   },
   "license": "MIT"
