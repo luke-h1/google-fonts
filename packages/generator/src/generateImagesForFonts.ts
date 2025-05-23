@@ -1,7 +1,9 @@
 import cliProgress from 'cli-progress';
+import fsExtra from 'fs-extra';
 import PQueue from 'p-queue';
 import physicalCpuCount from 'physical-cpu-count';
 
+import { FontImagesDir } from './constants';
 import { FontItem } from './types';
 import { generateImageForFontVariant } from './utils/generateImages';
 import { varNameForFontVariant } from './utils/name';
@@ -9,6 +11,8 @@ import { varNameForFontVariant } from './utils/name';
 const CPUBoundConcurrency = Math.max(1, physicalCpuCount - 1);
 
 export async function generateImagesForFonts(fonts: FontItem[]) {
+  await fsExtra.ensureDir(FontImagesDir);
+
   let totalFonts = 0;
   for (const webfont of fonts) {
     totalFonts += webfont.variants.length;
@@ -28,26 +32,30 @@ export async function generateImagesForFonts(fonts: FontItem[]) {
   const errors: [string, Error][] = [];
   try {
     bar.start(totalFonts, i);
+    const promises = [];
     for (const webfont of fonts) {
       for (const variantKey of webfont.variants) {
         const p = q.add(() => generateImageForFontVariant(webfont, variantKey));
         // @ts-ignore
         p.font = varNameForFontVariant(webfont, variantKey);
-        (async () => {
-          try {
-            await p;
-          } catch (e) {
-            // @ts-ignore
-            errors.push([p.font, e as Error]);
-            throw e;
-          } finally {
-            i++;
-            // @ts-ignore
-            bar.update(i, { font: p.font });
-          }
-        })();
+        promises.push(
+          (async () => {
+            try {
+              await p;
+            } catch (e) {
+              // @ts-ignore
+              errors.push([p.font, e as Error]);
+              throw e;
+            } finally {
+              i++;
+              // @ts-ignore
+              bar.update(i, { font: p.font });
+            }
+          })()
+        );
       }
     }
+    await Promise.all(promises);
     await q.onEmpty();
   } catch (e) {
     throw e;
